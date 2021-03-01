@@ -1,0 +1,8 @@
+@import "../../../../common/app-style/vars.css";
+
+:root {
+  --color-background-auth: #0079c2;
+  --color-text-auth: #fff;
+  --color-primary-auth: #333;
+}
+
