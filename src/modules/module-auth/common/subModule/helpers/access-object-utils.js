@@ -75,14 +75,12 @@ export function checkAccess(user, roles, permissions) {
         }
         if (
           permissionsOr.length > 0
-          && !permissionsOr.some((permission) =>
-          userPermissions.includes(permission) || configPermissions.includes(permission))
+          && !permissionsOr.some((permission) => userPermissions.includes(permission) || configPermissions.includes(permission))
         ) {
           errors.push(i18n('errors.notPermissionsOr', { permissions: permissionsOr.join(', ') }));
         }
         if (permissionsAnd.length > 0
-          && !permissionsAnd.some((permission) =>
-            userPermissions.includes(permission) || configPermissions.includes(permission))
+          && !permissionsAnd.some((permission) => userPermissions.includes(permission) || configPermissions.includes(permission))
         ) {
           errors.push(i18n('errors.notPermissionsAnd', { permissions: permissionsAnd.join(', ') }));
         }

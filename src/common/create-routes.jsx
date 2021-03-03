@@ -115,18 +115,18 @@ export default function createRoutes(
       >
         {
           renderProjectLayoutComponent
-          ? (
-            executeVariable(
-              renderProjectLayoutComponent,
-              null,
-              subModules,
+            ? (
+              executeVariable(
+                renderProjectLayoutComponent,
+                null,
+                subModules,
+              )
             )
-          )
-          : (
-            <Route
-              component={ ProjectLayoutComponent || (({ children }) => children) }
-            >
-              {
+            : (
+              <Route
+                component={ ProjectLayoutComponent || (({ children }) => children) }
+              >
+                {
                 typeof indexRoute === 'string'
                   ? (
                     <IndexRedirect to={ indexRoute } />
@@ -135,9 +135,9 @@ export default function createRoutes(
                     <IndexRoute component={ indexRoute || (() => (<div />)) } />
                   )
               }
-              { subModules }
-            </Route>
-          )
+                { subModules }
+              </Route>
+            )
         }
 
         {

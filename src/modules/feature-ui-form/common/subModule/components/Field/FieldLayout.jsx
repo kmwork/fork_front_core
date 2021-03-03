@@ -91,6 +91,7 @@ export default class FieldLayout extends PureComponent {
       </div>
     );
   }
+
   renderErrors() {
     const {
       errors,

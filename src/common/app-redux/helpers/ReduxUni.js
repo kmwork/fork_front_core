@@ -19,8 +19,7 @@ export default class ReduxUni {
   getFeaturesMap(field, defaultValue = {}) {
     return Object.assign(
       {},
-      ...this.getFeatures(this.getPrefix()).map((feature) =>
-        (typeof feature[field] !== 'undefined' ? feature[field] : defaultValue)),
+      ...this.getFeatures(this.getPrefix()).map((feature) => (typeof feature[field] !== 'undefined' ? feature[field] : defaultValue)),
     );
   }
 
@@ -67,8 +66,7 @@ export default class ReduxUni {
   getBindActions(api = {}, TYPES = this.getTypes(this.getPrefix())) {
     return Object.assign(
       {},
-      ...this.getFeatures(this.getPrefix()).map(({ getBindActions }) =>
-        (typeof getBindActions !== 'undefined' ? getBindActions.call(this, api, TYPES) : {})),
+      ...this.getFeatures(this.getPrefix()).map(({ getBindActions }) => (typeof getBindActions !== 'undefined' ? getBindActions.call(this, api, TYPES) : {})),
     );
   }
 
@@ -86,6 +84,7 @@ export default class ReduxUni {
   getCaseReducers(TYPES) {
     return this.getFeaturesMap('caseReducers');
   }
+
   getSliceReducers(TYPES) {
     return this.getFeaturesMap('sliceReducers');
   }

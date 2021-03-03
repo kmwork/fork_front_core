@@ -68,8 +68,7 @@ export function parseToJsonPatch(patchOperations) {
       return [patchOperations];
     }
 
-    return Object.keys(patchOperations).map((field) =>
-      createJsonPatchOperation(field, patchOperations[field]));
+    return Object.keys(patchOperations).map((field) => createJsonPatchOperation(field, patchOperations[field]));
   }
 
   throw new Error('Not supported json patch format', patchOperations, 'See https://tools.ietf.org/html/rfc6902');
@@ -92,9 +91,7 @@ export function replacePathIndexToItemId(operation, saveItemIds = false) {
       itemIds,
     } = operation;
 
-    const resultPath = itemIds.reduce((result, itemId) =>
-      result.replace(/\/(\d+)(\/|$)/, `/${SPECIAL_DELIMITER}${itemId}${SPECIAL_DELIMITER}$2`,
-    ), path)
+    const resultPath = itemIds.reduce((result, itemId) => result.replace(/\/(\d+)(\/|$)/, `/${SPECIAL_DELIMITER}${itemId}${SPECIAL_DELIMITER}$2`), path)
       .replace(SPECIAL_DELIMITER_REGEXP, '');
 
     // const regExp = /\/(\d+)(\/|$)/g;

@@ -31,6 +31,7 @@ export default class ServiceMockUsers extends ServiceUsers {
       pick(newData, PUBLIC_EDITABLE_ATTRS),
     );
   }
+
   async changeUserPassword(newPassword, oldPassword) {
     logger.debug('ServiceMockUsers', 'changeUserPassword');
     const serviceAuth = this.getService('serviceAuth');
@@ -42,6 +43,7 @@ export default class ServiceMockUsers extends ServiceUsers {
       throw new Error('Неверный старый пароль');
     }
   }
+
   async checkUnique(field, value) {
     logger.debug('ServiceMockUsers', 'checkUnique');
     const result = objectValues(this.getService('serviceAuth').getUsers())
@@ -90,10 +92,12 @@ export default class ServiceMockUsers extends ServiceUsers {
     logger.log('ServiceMockUsers', 'editUserByAdmin', userId);
     throw new Error('Not implemented');
   }
+
   async deleteUserByAdmin(userId) {
     logger.log('ServiceMockUsers', 'deleteUserByAdmin', userId);
     throw new Error('Not implemented');
   }
+
   async deleteAllByAdmin() {
     logger.log('ServiceMockUsers', 'deleteAllByAdmin');
     throw new Error('Not implemented');

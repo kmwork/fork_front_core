@@ -90,15 +90,15 @@ export default class MediaQuery extends Component {
     }
 
     return !minWidth && maxWidth === SIZES_ARRAY[SIZES_ARRAY.length - 1]
-    ? children
-    : (
-      <Responsive
-        minWidth={ minWidth }
-        maxWidth={ maxWidth }
-        { ...mediaQueryLibProps }
-      >
-        { children }
-      </Responsive>
-    );
+      ? children
+      : (
+        <Responsive
+          minWidth={ minWidth }
+          maxWidth={ maxWidth }
+          { ...mediaQueryLibProps }
+        >
+          { children }
+        </Responsive>
+      );
   }
 }

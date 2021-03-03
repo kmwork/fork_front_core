@@ -31,7 +31,9 @@ export default class CoreService {
   OPERATION_TYPE = OPERATION_TYPE;
 
   servicesContext = null;
+
   request = null;
+
   /**
    * Создается в config/utils/create-config.js:
    *
@@ -43,6 +45,7 @@ export default class CoreService {
    * timeout: number
    */
   endpointServiceConfig = null;
+
   options = null;
 
   constructor(endpointServiceConfig = null, options = {}) {
@@ -53,6 +56,7 @@ export default class CoreService {
   setRequest(request) {
     this.request = request;
   }
+
   getRequest() {
     return this.request;
   }
@@ -60,6 +64,7 @@ export default class CoreService {
   getUser() {
     return this.getRequest()[REQUEST_FIELD__USER];
   }
+
   getUserToken() {
     return this.getRequest()[REQUEST_FIELD__USER_TOKEN];
   }
@@ -67,9 +72,11 @@ export default class CoreService {
   setServicesContext(servicesContext) {
     this.servicesContext = servicesContext;
   }
+
   getServicesContext() {
     return this.servicesContext;
   }
+
   getService(serviceName) {
     return this.getServicesContext().getService(this.getRequest(), serviceName);
   }
@@ -77,6 +84,7 @@ export default class CoreService {
   setEndpointServiceConfig(endpointServiceConfig) {
     this.endpointServiceConfig = endpointServiceConfig;
   }
+
   getEndpointServiceConfig() {
     return this.endpointServiceConfig;
   }
@@ -144,9 +152,11 @@ export default class CoreService {
   async isInit() {
     return !!INIT_SERVICES[this.getServiceName()];
   }
+
   async setInit(init = true) {
     INIT_SERVICES[this.getServiceName()] = init;
   }
+
   async initService() {
     if (!await this.isInit()) {
       logger.debug('Init service:', this.getServiceName());
@@ -154,9 +164,11 @@ export default class CoreService {
       await this.setInit(true);
     }
   }
+
   async getInitData() {
     return [];
   }
+
   async initData(data) {
   }
 
@@ -166,12 +178,15 @@ export default class CoreService {
   async serializeRecord(recordQuery, operationType, options = undefined) {
     return recordQuery;
   }
+
   async serializeRecords(recordsQuery, operationType, options = undefined) {
     return recordsQuery;
   }
+
   async deserializeData(data, operationType, options = undefined) {
     return data;
   }
+
   async deserializePatchValue(value, path, op, options = undefined) {
     return value;
   }
@@ -234,15 +249,19 @@ export default class CoreService {
   async createRecord(record, id, options) {
     throw new Error('Not Implemented');
   }
+
   async readRecord(id, options) {
     throw new Error('Not Implemented');
   }
+
   async updateRecord(id, data, options) {
     throw new Error('Not Implemented');
   }
+
   async createOrUpdateRecord(id, data, options) {
     throw new Error('Not Implemented');
   }
+
   async removeRecord(id, options) {
     throw new Error('Not Implemented');
   }
@@ -277,9 +296,11 @@ export default class CoreService {
   async startTransactionSession() {
     throw new Error('Not Implemented');
   }
+
   commitTransactionSession(transactionSession) {
     throw new Error('Not Implemented');
   }
+
   abortTransactionSession(transactionSession) {
     throw new Error('Not Implemented');
   }

@@ -58,8 +58,8 @@ export default class ImageTools {
     const image = document.createElement('img');
 
     image.onload = (imgEvt) => {
-      let width  = image.width;
-      let height = image.height;
+      let { width } = image;
+      let { height } = image;
       let isTooLarge = false;
 
       if (width >= height && width > maxDimensions.width) {

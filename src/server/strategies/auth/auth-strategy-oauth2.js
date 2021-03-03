@@ -17,7 +17,7 @@ export default async function authStrategyOAuth2(request, response, servicesCont
   const refreshToken = getRefreshToken(request);
 
   logger.debug(`Auth strategy. authType: ${authType}, accessToken:\n${accessToken}`);
-  const serviceAuth = request.services.serviceAuth;
+  const { serviceAuth } = request.services;
 
   async function tryRefresh() {
     let userInfo;

@@ -109,8 +109,7 @@ export function normalizeAttachment(attachment) {
   if (typeof attachment === 'string'
     || (Array.isArray(attachment) && typeof attachment[0] === 'string')) {
     return Array.isArray(attachment)
-      ? attachment.map((attachItem) =>
-        createAttachment(attachItem, attachItem, null, null, null, attachItem, attachItem))
+      ? attachment.map((attachItem) => createAttachment(attachItem, attachItem, null, null, null, attachItem, attachItem))
       : createAttachment(attachment, attachment, null, null, null, attachment, attachment);
   }
   return attachment;

@@ -4,7 +4,7 @@ import React from 'react';
 let CB = null;
 
 export function initComponents(COMPONENTS_BASE) {
-  require('./app-style/init.css');
+  require('../../lib/common/app-style/init.css');
 
   // ======================================================
   // PAGES

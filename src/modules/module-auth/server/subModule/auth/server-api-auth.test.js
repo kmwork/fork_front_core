@@ -13,8 +13,8 @@ import { ivanovI } from '../users/data-users';
 
 import { API } from './server-api-auth';
 
-const tokenCookie = serverConfig.server.features.auth.tokenCookie;
-const refreshTokenCookie = serverConfig.server.features.auth.refreshTokenCookie;
+const { tokenCookie } = serverConfig.server.features.auth;
+const { refreshTokenCookie } = serverConfig.server.features.auth;
 
 const TEST_USER = {
   userId: ivanovI.userId,

@@ -60,7 +60,7 @@ export default class AttachmentUploadControl extends PureComponent {
 
             className={ `UploadControl__input ${customControlProps.className || ''}` }
             required={ false }
-            value={ '' }
+            value=""
 
             onClick={ onTouch }
             onChange={ onChange }

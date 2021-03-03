@@ -201,11 +201,10 @@ export function isDecimal(value) {
 export function emptyFunction() {}
 
 export function filterObjects(collections, queryFields) {
-  return collections.filter((payer) =>
-    Object.keys(queryFields).every((field) => {
-      const value = queryFields[field];
-      const payerValue = payer[field];
-      return value === null
+  return collections.filter((payer) => Object.keys(queryFields).every((field) => {
+    const value = queryFields[field];
+    const payerValue = payer[field];
+    return value === null
         || typeof value === 'undefined'
         || value === ''
         || payerValue === value
@@ -214,7 +213,7 @@ export function filterObjects(collections, queryFields) {
           && value.toLowerCase
           && payerValue.toLowerCase().indexOf(value.toLowerCase()) === 0
         );
-    }));
+  }));
 }
 
 export function arrayToObject(array, keyMap) {
@@ -528,11 +527,10 @@ export function delayPromiseThen(delay = 0, maxValue = undefined) {
 export function promiseMap(nameToPromiseMap) {
   const keys = Object.keys(nameToPromiseMap);
   return Promise.all(keys.map((key) => nameToPromiseMap[key]))
-    .then((results) =>
-      keys.reduce((resultMap, key, index) => {
-        resultMap[key] = results[index];
-        return resultMap;
-      }, {}));
+    .then((results) => keys.reduce((resultMap, key, index) => {
+      resultMap[key] = results[index];
+      return resultMap;
+    }, {}));
 }
 
 export const PROMISE_STATUS = {

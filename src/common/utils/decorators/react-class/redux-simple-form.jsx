@@ -95,6 +95,7 @@ export default function reduxSimpleFormDecorator(
         } = this.props;
         actionFormInit(formIdFinal, form);
       }
+
       componentWillUnmount() {
         this.props.actionFormRemove(this.props.formId);
       }

@@ -25,7 +25,9 @@ export function style(kind) {
 }
 
 export function render(diff) {
-  const { kind, path, lhs, rhs, index, item } = diff;
+  const {
+    kind, path, lhs, rhs, index, item,
+  } = diff;
 
   switch (kind) {
     case 'E':

@@ -58,8 +58,8 @@ export function translateWithNamespace(namespace, key, mapParams = {}, defaultVa
     value = typeof defaultValue !== 'undefined'
       ? defaultValue
       : clientConfig.common && !clientConfig.common.isProduction
-          ? `@@ ${key}`
-          : undefined;
+        ? `@@ ${key}`
+        : undefined;
   }
 
   return value;
@@ -151,7 +151,7 @@ export function changeLanguagePromise(language) {
     'feature-ui-basic-semantic',
     'feature-ui-form-generator-semantic',
     'feature-ui-form-semantic',
-  ]
+  ];
 
   return new Promise((resolve, reject) => {
     loadedHandler = resolve;
@@ -159,10 +159,10 @@ export function changeLanguagePromise(language) {
       // Позволяет сменить язык если в модулях коры нет локализации для отличного от коровского whitelist.
       // Отрабатывает только кейс когда коровские модули не имеют отличную от ru, en локализаций, в остальных случаях
       // бросит ошибку
-      if(!coreLanguages.includes(lng) && coreNamespaces.includes(ns)) {
+      if (!coreLanguages.includes(lng) && coreNamespaces.includes(ns)) {
         return console.warn(`Не удалось загрузить локализацию ${lng} для модуля Front-Core: ${ns}`);
       }
-        reject(msg);
+      reject(msg);
     };
 
     // i18nInstance.on('loaded', loadedHandler);

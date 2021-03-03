@@ -44,7 +44,9 @@ export default class AbstractClientRunner {
   commonSubModules = null;
 
   store;
+
   history;
+
   routes;
 
   componentsBase = null;
@@ -112,9 +114,11 @@ export default class AbstractClientRunner {
       (subModule) => subModule.hotReloadFunc(this.reloadUi, this.reloadStore, this.reloadAll, this.reloadModels),
     );
   }
+
   initComponents(COMPONENTS_BASE) {
     return COMPONENTS_BASE;
   }
+
   initSubModulesComponents(COMPONENTS_BASE) {
     this.getCommonSubModules().forEach((subModule) => subModule.initComponents(COMPONENTS_BASE));
     return COMPONENTS_BASE;

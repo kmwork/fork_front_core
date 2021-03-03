@@ -75,7 +75,6 @@ export function getActions({
   apiGetAttachmentInfo,
   apiDeleteAttachment,
 }) {
-
   function actionUploadingChange(uuid, updatedData) {
     return {
       uuid,

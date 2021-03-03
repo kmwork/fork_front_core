@@ -52,8 +52,7 @@ function startBackend({
   }
 
   backendCompiler.plugin('compile',
-    () => console.log('Building server...')
-  );
+    () => console.log('Building server...'));
 
   let monitor;
   backendCompiler.plugin('done', () => {
@@ -61,20 +60,18 @@ function startBackend({
     try {
       console.log('Restarting server...');
       if (!monitor) {
-        const finalNodeOptions = Object.assign(
-          {
-            cwd: '.',
-            maxRestarts: 1,
-            sleep: 100,
-            kill: 1000,
-            stdio: [
-              process.stdin,
-              process.stdout,
-              process.stderr
-            ]
-          },
-          nodeOptions
-        );
+        const finalNodeOptions = {
+          cwd: '.',
+          maxRestarts: 1,
+          sleep: 100,
+          kill: 1000,
+          stdio: [
+            process.stdin,
+            process.stdout,
+            process.stderr
+          ],
+          ...nodeOptions
+        };
 
         // перезапускает ноду при краше
         monitor = respawn(['node', '--harmony', serverFilePath], finalNodeOptions);

@@ -31,7 +31,7 @@ function startFrontend({
   const frontendCompiler = webpack(webpackConfig);
 
   if (PROXY_ASSETS) {
-    webpackDevServerOptions = Object.assign({
+    webpackDevServerOptions = {
       contentBase: webpackConfig.output.path,
       filename: webpackConfig.output.filename,
       // chunkFilename: webpackConfig.output.chunkFilename,
@@ -55,8 +55,9 @@ function startFrontend({
         timing: true,
         chunks: false,
         chunkModules: false
-      }
-    }, webpackDevServerOptions);
+      },
+      ...webpackDevServerOptions
+    };
 
     // ======================================================
     // RUN WEBPACK DEV SERVER

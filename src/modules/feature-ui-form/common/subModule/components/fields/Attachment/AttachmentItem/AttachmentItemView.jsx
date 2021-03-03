@@ -89,6 +89,7 @@ export default class AttachmentItemView extends React.Component {
       onDescriptionChange(attachment, value, event);
     }
   }
+
   @bind()
   handleDescriptionChangedBlur(event, { value }) {
     const {
@@ -99,6 +100,7 @@ export default class AttachmentItemView extends React.Component {
       onDescriptionBlur(attachment, value, event);
     }
   }
+
   @bind()
   handleAttachmentClick(event) {
     const {
@@ -110,6 +112,7 @@ export default class AttachmentItemView extends React.Component {
       onClick(attachment, event);
     }
   }
+
   @bind()
   handleAttachmentRemove() {
     const {

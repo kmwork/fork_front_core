@@ -314,6 +314,5 @@ export function sendEndpointMethodFormDataRequest(
  * @returns {Promise.<*>}
  */
 export async function factoryEndpointServiceMethodRequest(endpointServiceConfig, serviceMethodPath, method) {
-  return (data, apiRequest, requestOptions) =>
-    sendEndpointMethodRequest(endpointServiceConfig, serviceMethodPath, method, data, apiRequest, requestOptions);
+  return (data, apiRequest, requestOptions) => sendEndpointMethodRequest(endpointServiceConfig, serviceMethodPath, method, data, apiRequest, requestOptions);
 }

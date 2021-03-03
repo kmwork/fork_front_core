@@ -61,18 +61,21 @@ export default class BaseApiClientClass {
   setGetContextDataFn(getContextFn) {
     this.getContextDataFn = getContextFn;
   }
+
   getContextData(...args) {
     if (!this.getContextDataFn) {
       throw new Error('Функция получения контекста "getContextFn" не задана');
     }
     return this.getContextDataFn(...args);
   }
+
   getUser(...args) {
     const context = this.getContextData(...args);
     // обычно у нас в качестве контекста redux globalState и в нем есть userInfo.userData
     // return context ? context.userInfo.userData : null;
     return context ? getUser(context) : null;
   }
+
   /**
    * @deprecated - use getUser
    * @param args
@@ -93,6 +96,7 @@ export default class BaseApiClientClass {
       params,
     });
   }
+
   post(url, data, options = {}) {
     return this.proceedRequest({
       ...options,
@@ -101,6 +105,7 @@ export default class BaseApiClientClass {
       data,
     });
   }
+
   put(url, data, options = {}) {
     return this.proceedRequest({
       ...options,
@@ -109,6 +114,7 @@ export default class BaseApiClientClass {
       data,
     });
   }
+
   patch(url, data, options = {}) {
     let patchOperations = parseToJsonPatch(data);
 
@@ -123,6 +129,7 @@ export default class BaseApiClientClass {
       data: patchOperations,
     });
   }
+
   // delete - зарезервированное слово
   delete1(url, data, options = {}) {
     return this.proceedRequest({
@@ -132,6 +139,7 @@ export default class BaseApiClientClass {
       data,
     });
   }
+
   api(apiConfig, paramsOrData = null, options = {}) {
     const {
       method = 'get',
@@ -154,7 +162,7 @@ export default class BaseApiClientClass {
 
   uploadFile(apiConfig, filesMap, params = {}, options = {}) {
     return this.uploadFiles(apiConfig, filesMap, params, options)
-      .then((result) => Array.isArray(result) ? result[0] : result);
+      .then((result) => (Array.isArray(result) ? result[0] : result));
   }
 
   downloadFile(apiConfig, fileName, paramsOrData = null, options = {}) {
@@ -457,18 +465,19 @@ export default class BaseApiClientClass {
   }
 
 
-  mockFilter(requestOptions, error/* , response*/) {
+  mockFilter(requestOptions, error/* , response */) {
     const { mock } = requestOptions;
     if (error && error.code === 'ECONNABORTED') {
       console.warn('Abort by timeout');
       return true;
     }
     return mock && error && (
-        error.timeout
+      error.timeout
         || [503, 504].indexOf(error.status) >= 0
         || error.message.indexOf('Request has been terminated') >= 0
-      );
+    );
   }
+
   proceedMock(requestOptions, error, response) {
     const { getMockOnDemandPromise } = this.apiClientOptions;
     const {

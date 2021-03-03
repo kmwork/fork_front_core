@@ -16,18 +16,23 @@ export default class UniLogger {
   error(...other) {
     console.error(...other);
   }
+
   warn(...other) {
     console.warn(...other);
   }
+
   info(...other) {
     console.info(...other);
   }
+
   verbose(...other) {
     this.log(...other);
   }
+
   debug(...other) {
     this.log(...other);
   }
+
   silly(...other) {
     this.log(...other);
   }

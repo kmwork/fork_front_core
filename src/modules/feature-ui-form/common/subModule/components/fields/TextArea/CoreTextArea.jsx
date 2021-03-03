@@ -57,7 +57,7 @@ export default class CoreTextArea extends PureComponent {
 
     const { lastChangedBlurValue } = this.state;
 
-    const value = event.target.value;
+    const { value } = event.target;
 
     const hasChanges = value !== lastChangedBlurValue;
 

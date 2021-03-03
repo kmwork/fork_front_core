@@ -6,6 +6,7 @@ import { cookie } from '../../utils/hapi-utils';
 
 export default class ServicesContext {
   services = {};
+
   mockServices = {};
 
   /**

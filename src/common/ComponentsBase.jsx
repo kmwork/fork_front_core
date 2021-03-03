@@ -37,15 +37,14 @@ function addClassName(CurrentClassWrapper, classNameAdditional) {
     const classNameFinal = executeVariable(classNameAdditional, null, CurrentClass);
 
     // render
-    return ({ className, children, ...otherProps }) =>
-      React.createElement(
-        CurrentClass,
-        {
-          ...otherProps,
-          className: `${classNameFinal || ''} ${className || ''}`,
-        },
-        children,
-      );
+    return ({ className, children, ...otherProps }) => React.createElement(
+      CurrentClass,
+      {
+        ...otherProps,
+        className: `${classNameFinal || ''} ${className || ''}`,
+      },
+      children,
+    );
   };
 }
 

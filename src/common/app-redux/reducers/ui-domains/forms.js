@@ -9,7 +9,7 @@ const module = simpleModuleFactory('forms', { initialState });
 // ======================================================
 // TYPES
 // ======================================================
-export const TYPES = module.TYPES;
+export const { TYPES } = module;
 
 // ======================================================
 // ACTION CREATORS

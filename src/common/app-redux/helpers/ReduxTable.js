@@ -194,11 +194,7 @@ export default class ReduxTable extends ReduxUni {
 
           const newFilters = (filters === null || filters === false)
             ? {}
-            : filters
-              // неясно как перезаписывать фильтры, поэтому всегда будут перезаписываться, чтобы удобно было брать из query
-              // ? merge({}, currentFilters, filters)
-              ? filters
-              : currentFilters;
+            : filters || currentFilters;
 
           const hasFiltersChanged = !deepEquals(newFilters, currentFilters || {});
 

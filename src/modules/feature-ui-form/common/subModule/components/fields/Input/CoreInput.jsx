@@ -167,8 +167,9 @@ export default class CoreInput extends PureComponent {
       ? typeof tempValue !== 'undefined'
         ? tempValue
         : value
-     : value;
+      : value;
   }
+
   // ======================================================
   // MAIN RENDER
   // ======================================================

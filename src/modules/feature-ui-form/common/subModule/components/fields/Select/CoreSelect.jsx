@@ -26,6 +26,7 @@ export default class CoreSelect extends PureComponent {
     'maxVisible',
     'onSelect',
   ];
+
   static propTypes = {
     selectedValue: PropTypes.any,
     // options: PropTypes.arrayOf(PropTypes.shape({
@@ -74,6 +75,7 @@ export default class CoreSelect extends PureComponent {
 
     return options.find((option) => option[fieldValue] === selectedValue);
   }
+
   static getSelectedOptionLabel(props, emptyValue = null) {
     const {
       selectedValue,
@@ -153,7 +155,7 @@ export default class CoreSelect extends PureComponent {
       // antd select format
       // todo @ANKU @LOW @BUG_OUT @antd - элемент при выборе показывает в input option.value а не children option
       return this.updateSelect(optionNode.props.optionValue, label, optionNode, contextSelect);
-    } else if (label.target) {
+    } if (label.target) {
       // event
       return this.updateSelect(label.target.value, undefined, optionNode, contextSelect);
     }

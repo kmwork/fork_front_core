@@ -159,10 +159,8 @@ export function arrayToTree(array, options = {}, parent = null, level = 0) {
 
   let treeResult = tree;
 
-  const children = array.filter((child) =>
-    (isEmpty(child[fieldParent]) && isEmpty(parent[fieldId]))
-    || (child[fieldParent] === parent[fieldId]),
-  );
+  const children = array.filter((child) => (isEmpty(child[fieldParent]) && isEmpty(parent[fieldId]))
+    || (child[fieldParent] === parent[fieldId]));
 
   if (!isEmpty(children)) {
     if (isEmpty(parent[fieldId])) {

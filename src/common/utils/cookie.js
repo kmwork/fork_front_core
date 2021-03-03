@@ -16,7 +16,7 @@ export function getCookie(name) {
 }
 
 export function setCookie(name, value, options = {}) {
-  let expires = options.expires;
+  let { expires } = options;
 
   if (typeof expires === 'number' && expires) {
     const d = new Date();

@@ -53,11 +53,9 @@ export const SUB_MODULE_FACTORY = {
       .keys()
       .map((modulePath) => webpackRequireContext(modulePath).default);
     // modules.forEach(({ MODULE_NAME }) => console.log(`Load "${type}" sub module: "${MODULE_NAME}"`));
-    return modules.map((module) =>
-      (type === this.SUB_MODULE_TYPES.COMMON
-        ? this.createCommonSubModule(module)
-        : this.createServerSubModule(module)),
-    )
+    return modules.map((module) => (type === this.SUB_MODULE_TYPES.COMMON
+      ? this.createCommonSubModule(module)
+      : this.createServerSubModule(module)))
       .filter((module) => !module.isTurnOff);
   },
 

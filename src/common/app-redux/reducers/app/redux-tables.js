@@ -2,7 +2,7 @@ import createTablesModule from '../../helpers/create-tables-module';
 
 const MODULE = createTablesModule();
 
-export const TYPES = MODULE.TYPES;
+export const { TYPES } = MODULE;
 /**
  Сама мапа таблиц уже добавлена в рутовый редьюсер под именем tables.
  Поэтому от этого файла достаточно только actions
@@ -28,6 +28,6 @@ export const TYPES = MODULE.TYPES;
  actionChangeRecordsSelectedAll(tableUuid, isSelectedAll)
  actionClearRecordSelection(tableUuid)
 */
-export const getBindActions = MODULE.getBindActions;
+export const { getBindActions } = MODULE;
 export const reducer = MODULE.moduleReducer;
 export default reducer;

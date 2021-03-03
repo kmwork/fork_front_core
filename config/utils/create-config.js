@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars,no-param-reassign */
 const pathLib = require('path');
 // на клиенте нет pahtLib.posix а на винде на сервере без posix будет неправильный урлы
-const join = (pathLib.posix || pathLib).join;
+const { join } = pathLib.posix || pathLib;
 
 const FRONT_UI_SERVER_API_PREFIX = 'api';
 
@@ -138,7 +138,7 @@ function createEndpointServiceConfig({
     /** Когда запускаем на localhost или нужно на стендах зашить */
     SERVICES_HOST,
     SERVICES_PORT,
-    /** Первый запуск мидловых сервисов бывает до 20 сек*/
+    /** Первый запуск мидловых сервисов бывает до 20 сек */
     REQUEST_TIMEOUT
   } = process.env;
 
@@ -185,19 +185,20 @@ function createEndpointFactoryFromEnv(env) {
     /** Когда запускаем на localhost или нужно на стендах зашить */
     SERVICES_HOST,
     SERVICES_PORT = 80,
-    /** Первый запуск мидловых сервисов бывает до 20 сек*/
+    /** Первый запуск мидловых сервисов бывает до 20 сек */
     REQUEST_TIMEOUT = 120000
   } = env || process.env;
 
   const FINAL_SERVICES_HOST = HOST || SERVICES_HOST || LOCAL_HOST;
 
   return (endpoint, otherConfigs = {}) => {
-    return createEndpointServiceConfig(Object.assign({
+    return createEndpointServiceConfig({
       host: FINAL_SERVICES_HOST,
       port: SERVICES_PORT,
       endpoint,
-      timeout: REQUEST_TIMEOUT
-    }, otherConfigs));
+      timeout: REQUEST_TIMEOUT,
+      ...otherConfigs
+    });
   };
 }
 

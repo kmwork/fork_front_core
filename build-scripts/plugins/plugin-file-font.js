@@ -14,13 +14,11 @@ function pluginFileFont(webpackConfig, {
     webpackConfig.module.rules.push({
       test: new RegExp(`\\.${extension}$`),
       loader: 'url-loader',
-      options: Object.assign(
-        {},
-        ASSETS_BASE_QUERY,
-        {
-          mimetype
-        }
-      )
+      options: {
+
+        ...ASSETS_BASE_QUERY,
+        mimetype
+      }
     });
   });
 }

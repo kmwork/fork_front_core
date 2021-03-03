@@ -36,8 +36,8 @@ function updatePathIfChange(path, deepEqual, singleRun, handler, context, newPro
     paths.forEach((pathItem) => {
       const newObj = getObjByPath(newProps, pathItem);
       const oldObj = getObjByPath(oldProps, pathItem);
-      if ((deepEqual && !lodashIsEqual(newObj, oldObj)) ||
-        (!deepEqual && newObj !== oldObj)) {
+      if ((deepEqual && !lodashIsEqual(newObj, oldObj))
+        || (!deepEqual && newObj !== oldObj)) {
         runContexts.push({
           path: pathItem,
           newProps,
@@ -64,13 +64,11 @@ function updatePathIfChange(path, deepEqual, singleRun, handler, context, newPro
           },
         );
       }
-      return runContexts.some((runContext) =>
-        handler.call(
-          context,
-          runContext.newProps,
-          runContext,
-        ),
-      );
+      return runContexts.some((runContext) => handler.call(
+        context,
+        runContext.newProps,
+        runContext,
+      ));
     }
   } catch (error) {
     // todo @ANKU @LOW @BUG_OUT @react - не знаю чья бага, но при использовании декатраторов если внутри них произошла ошибка она проглатывается!
@@ -207,7 +205,8 @@ export default function onPropsUpdate(
           afterCustomFilter ? afterCustomFilter.bind(this, currentFunction) : currentFunction,
           this,
           newProps,
-          props);
+          props,
+        );
       }
       return stopPropagation;
     };

@@ -49,8 +49,7 @@ describe('format-utils', () => {
         '{0}: {1} {0}',
         'foo',
         'bar',
-        (path, value, type, mask, space, position/* , allString */) =>
-          `${value}${position}`,
+        (path, value, type, mask, space, position/* , allString */) => `${value}${position}`,
       )).to.equal('foo0: bar5 foo9');
     });
     it('should hide nonWordSeparator if value is empty', () => {
@@ -85,7 +84,7 @@ describe('format-utils', () => {
       expect(formatString(
         'Test mask {attr}, {empty}: {innerObj.region} and {innerObj.birthday:date:DD.MM.YY}',
         omit(data, 'attr'),
-        (path, value, /* type, mask */) => `${value || lodashGet(data, path)}`,
+        (path, value /* type, mask */) => `${value || lodashGet(data, path)}`,
       )).to.equal('Test mask ATTR, null: REGION and 19.06.18');
     });
   });

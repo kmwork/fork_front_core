@@ -158,13 +158,12 @@ export default function authViewDecorator(...args) {
 
         if (accessErrors === true) {
           return true;
-        } else if (accessErrors === false) {
+        } if (accessErrors === false) {
           // не авторизован
           if (redirectNotAuth) {
             const redirectNotAuthFinal = executeVariable(redirectNotAuth, null,
               getRoutePath,
-              location,
-            );
+              location);
             onGoTo(cutContextPath(redirectNotAuthFinal));
           } else {
             // запускаем ошибку авторизации
@@ -175,8 +174,7 @@ export default function authViewDecorator(...args) {
           // actionChangeGlobalUniError(createUniError(i18n('У вас нет прав на просмотр страницы')));
           const redirectNotAccessFinal = executeVariable(redirectNotAccess, null,
             getRoutePath,
-            location,
-          );
+            location);
           onGoTo(cutContextPath(redirectNotAccessFinal));
           // todo @ANKU @LOW - может все ошибки показать?
           notifyError(accessErrors[0]);
@@ -194,6 +192,7 @@ export default function authViewDecorator(...args) {
           allow: this.checkAllow(),
         });
       }
+
       componentWillReceiveProps(newProps) {
         // если мы остались и ждем атворизации
         if (newProps.user !== this.props.user) {

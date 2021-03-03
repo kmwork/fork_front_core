@@ -98,6 +98,7 @@ export default class ServiceUsers extends CoreService {
       },
     );
   }
+
   async changeUserPassword(newPassword, oldPassword) {
     logger.debug('ServiceUsers', 'changeUserPassword');
     return this.sendWithAuth(
@@ -111,6 +112,7 @@ export default class ServiceUsers extends CoreService {
       },
     );
   }
+
   async deleteUser() {
     logger.debug('ServiceUsers', 'deleteUser');
     return this.sendWithAuth(
@@ -194,6 +196,7 @@ export default class ServiceUsers extends CoreService {
       },
     );
   }
+
   async deleteUserByAdmin(userId, token = undefined) {
     logger.log('ServiceUsers', 'deleteUserByAdmin', userId);
     return this.sendWithAuth(
@@ -207,6 +210,7 @@ export default class ServiceUsers extends CoreService {
       },
     );
   }
+
   async deleteAllByAdmin(token = undefined) {
     logger.log('ServiceUsers', 'deleteAllByAdmin');
     return this.sendWithAuth(

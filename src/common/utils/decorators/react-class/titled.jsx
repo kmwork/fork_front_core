@@ -64,6 +64,7 @@ export default function titledDecorator(
           otherInfo: executeVariable(otherInfo, null, props),
         };
       }
+
       // ======================================================
       // LIFECYCLE
       // ======================================================
@@ -71,6 +72,7 @@ export default function titledDecorator(
       // componentDidMount() {
         this.props.actionCurrentPageChanged(this.getPageInfo());
       }
+
       componentWillReceiveProps(nextProps, nextContext) {
         const newPageInfo = this.getPageInfo(nextProps);
         const prevPageInfo = this.getPageInfo();

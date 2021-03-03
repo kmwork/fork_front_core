@@ -110,24 +110,22 @@ function pluginCodeBabelOptions(webpackConfig, context) {
     'babel-plugin-transform-export-extensions'
   ];
 
-  babelLoader.options = Object.assign(
-    {},
-    babelLoader.options,
-    {
-      // This is a feature of `babel-loader` for webpack (not Babel itself).
-      // It enables caching results in ./node_modules/.cache/babel-loader/
-      // directory for faster rebuilds.
-      cacheDirectory: true,
+  babelLoader.options = {
 
-      // не используем файл .babelrc (чтобы было более удобное наследование проектов)
-      babelrc: false,
+    ...babelLoader.options,
+    // This is a feature of `babel-loader` for webpack (not Babel itself).
+    // It enables caching results in ./node_modules/.cache/babel-loader/
+    // directory for faster rebuilds.
+    cacheDirectory: true,
 
-      presets,
-      plugins,
+    // не используем файл .babelrc (чтобы было более удобное наследование проектов)
+    babelrc: false,
 
-      comments: !MINIMIZED
-    }
-  );
+    presets,
+    plugins,
+
+    comments: !MINIMIZED
+  };
 }
 
 module.exports = pluginCodeBabelOptions;

@@ -226,21 +226,20 @@ export const register = function (server, options, next) {
     cookieEnableMocking,
   } = finalOptions;
 
-  server.state(cookieEnableMocking/* , {
+  server.state(cookieEnableMocking, /* , {
      ttl: null,
      isSecure: true,
      isHttpOnly: true,
      encoding: 'base64json',
      clearInvalid: false, // remove invalid cookies
      strictHeader: true // don't allow violations of RFC 6265
-     }*/
-    , {
+     } */
+    {
       strictHeader: false,
       isSecure: false,
       isHttpOnly: false,
       clearInvalid: true,
-    },
-  );
+    });
 
   server.ext('onRequest', onRequest.bind(null, finalOptions));
   server.ext('onPreResponse', onPreResponse.bind(null, finalOptions));

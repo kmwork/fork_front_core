@@ -86,14 +86,15 @@ describe('Diff', () => {
     });
 
     it('should log no diff without group', () => {
-      const loggerWithNoGroupCollapsed = Object.assign({}, logger, {
+      const loggerWithNoGroupCollapsed = {
+        ...logger,
         groupCollapsed: () => {
-          throw new Error()
+          throw new Error();
         },
         groupEnd: () => {
-          throw new Error()
+          throw new Error();
         },
-      });
+      };
 
       diffLogger({}, {}, loggerWithNoGroupCollapsed, true);
 

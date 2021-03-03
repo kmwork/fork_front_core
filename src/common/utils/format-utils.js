@@ -13,7 +13,7 @@ export const TYPES = {
   REFERENCE: 'radio',
   LIST: 'select',
   /* DYNAMIC,
-   BINARY*/
+   BINARY */
 };
 
 /**
@@ -39,7 +39,7 @@ function formatStringInner(addNextNonWordCharacters, str, ...args) {
       itemFormatterFn = null;
     }
 
-    let params = argsFinal[0];
+    const params = argsFinal[0];
     let paramArray = null;
     let paramArrayIndex = 0;
 

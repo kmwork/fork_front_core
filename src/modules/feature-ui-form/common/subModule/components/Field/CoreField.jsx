@@ -35,6 +35,7 @@ const { FieldLayout } = CB;
 
 export default class CoreField extends Component {
   static TYPES = TYPES;
+
   static SUB_TYPES = SUB_TYPES;
 
   static propTypes = FIELD_PROP_TYPE_MAP;
@@ -70,8 +71,7 @@ export default class CoreField extends Component {
       ...otherProps
     } = nextProps;
 
-    const isShallowEqual =
-      shallowEqual(nextState, this.state)
+    const isShallowEqual =      shallowEqual(nextState, this.state)
       && shallowEqual(
         otherProps,
         omit(this.props, 'context', 'controlProps', 'formDependentData'),
@@ -126,6 +126,7 @@ export default class CoreField extends Component {
         return value;
     }
   }
+
   static parseOutValue(type = TYPES.TEXT, value = null, props = {}) {
     const { controlClass } = props;
 
@@ -144,6 +145,7 @@ export default class CoreField extends Component {
         return value;
     }
   }
+
   static isEmptyValue(type = TYPES.TEXT, value = null, props = {}) {
     const {
       controlClass,
@@ -560,6 +562,7 @@ export default class CoreField extends Component {
         : [...this.state.errors, ...wrapToArray(errors)],
     });
   }
+
   @bind()
   handleWarnings(warnings, replace = false) {
     this.setState({
@@ -697,12 +700,12 @@ export default class CoreField extends Component {
      ...allFieldsPropsOther,
      ...otherProps,
      });
-     }*/
+     } */
 
     /* const meta = {
      touched: errors.length > 0,
      error: errors,
-     };*/
+     }; */
 
     // if (typeof valueName !== 'undefined' && valueName !== null) {
     //   return valueName;
@@ -769,15 +772,14 @@ export default class CoreField extends Component {
         // Checkbox
         return {
           checked: controlValue,
-          onChange: (event, props) =>
-            this.handleChange(
-              (props && typeof props.checked !== 'undefined')
-                ? props.checked
-                : typeof event.target.checked !== 'undefined'
-                  ? event.target.checked
-                  : event.target.value || event,
-              index,
-            ),
+          onChange: (event, props) => this.handleChange(
+            (props && typeof props.checked !== 'undefined')
+              ? props.checked
+              : typeof event.target.checked !== 'undefined'
+                ? event.target.checked
+                : event.target.value || event,
+            index,
+          ),
           ...controlPropsFinal,
         };
 
@@ -1053,7 +1055,7 @@ export default class CoreField extends Component {
         const hasMax = multiple && multipleMaxSize !== null && multipleMaxSize <= values.length;
 
         return (
-          <React.Fragment>
+          <>
             {
               values.map((itemValue, index) => (
                 <div
@@ -1086,11 +1088,12 @@ export default class CoreField extends Component {
                 </CB.Button>
               </div>
             ) }
-          </React.Fragment>
+          </>
         );
       }
     }
   }
+
   // ======================================================
   // MAIN RENDER
   // ======================================================

@@ -31,9 +31,8 @@ export function createSelector(...selectors) {
 }
 
 export function createAllSelector(modelName, recordSelector) {
-  return createSelector((session) =>
-    session[modelName].all().toModelArray()
-      .map((modelRecord) => recordSelector(modelRecord, session)));
+  return createSelector((session) => session[modelName].all().toModelArray()
+    .map((modelRecord) => recordSelector(modelRecord, session)));
 }
 
 export function defaultFormatEntity(entityRecord) {

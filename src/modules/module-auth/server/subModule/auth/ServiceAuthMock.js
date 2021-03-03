@@ -24,6 +24,7 @@ export default class ServiceAuthMock extends ServiceAuth {
   getUsers() {
     return USERS;
   }
+
   getTokens() {
     return TOKENS;
   }
@@ -43,6 +44,7 @@ export default class ServiceAuthMock extends ServiceAuth {
     }
     return user;
   }
+
   getUser(userId, password) {
     const user = this.getUserInner(userId);
     if (user && user.password === password) {
@@ -53,9 +55,11 @@ export default class ServiceAuthMock extends ServiceAuth {
     }
     return null;
   }
+
   getToken(userId) {
     return this.getTokens()[userId];
   }
+
   getUserByToken(token) {
     const resultUserId = Object.keys(this.getTokens()).filter((userId) => this.getTokens()[userId] === token);
     return resultUserId && this.getUserInner(resultUserId);

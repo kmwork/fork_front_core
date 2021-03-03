@@ -28,21 +28,22 @@ function register(server, options = {}, next) {
     cookieOptions,
   } = options;
 
-  const finalI18nextOptions = Object.assign(
-    {},
-    DEFAULT_PLUGIN_OPTIONS,
-    pluginOptions,
-  );
+  const finalI18nextOptions = {
+
+    ...DEFAULT_PLUGIN_OPTIONS,
+    ...pluginOptions,
+  };
 
   if (finalI18nextOptions.useCookieForDetect) {
     server.state(
       finalI18nextOptions.cookieName,
-      Object.assign({}, {
+      {
         strictHeader: false,
         isSecure: false,
         isHttpOnly: false,
         clearInvalid: true,
-      }, cookieOptions),
+        ...cookieOptions,
+      },
     );
   }
 

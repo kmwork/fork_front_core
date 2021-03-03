@@ -57,9 +57,7 @@ export default function permissionWrapper(
         if (authTurnOn) {
           const configPermissions = (Array.isArray(clientConfig.common.permissions) && clientConfig.common.permissions)
             || [];
-          const allow =
-            permissions.every((permission) =>
-              (user && user.permissions.includes(permission))
+          const allow =            permissions.every((permission) => (user && user.permissions.includes(permission))
               || configPermissions.includes(permission));
 
           if (!allow) {

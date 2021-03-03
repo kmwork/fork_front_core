@@ -78,6 +78,7 @@ export default class CoreModal extends PureComponent {
       onCancel();
     }
   }
+
   @bind()
   handleKeyDown(event) {
     const {

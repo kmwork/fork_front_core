@@ -175,6 +175,7 @@ export default function reduxTableDecorator(
           this.updateUrl(initMeta, initFilters);
         }
       }
+
       componentWillReceiveProps(newProps) {
         const {
           initMeta,
@@ -205,6 +206,7 @@ export default function reduxTableDecorator(
           actionLoadRecords(newTableId, initMeta, initFilters, false, false, syncWithUrlParameters);
         }
       }
+
       componentWillUnmount(props = this.props) {
         const {
           actionModuleItemRemove,
@@ -294,6 +296,7 @@ export default function reduxTableDecorator(
         clientLogger.error('@deprecated: Use "onUpdateTableFilters" or "onUpdateTableMeta" instead of "actionLoadRecords"');
         return this.props.actionLoadRecords(...args);
       }
+
       @bind()
       handleWrapActionClearFilters(...args) {
         clientLogger.error('@deprecated: Use "onUpdateTableFilters" instead of "actionClearFilters"');

@@ -9,12 +9,12 @@ import { STATE_CLIENT_CONFIG_PARAM } from '../constants/sync-consts';
 // export * from '../../modules/module-auth/common/subModule/redux-selectors';
 import * as userSelectors from '../../modules/module-auth/common/subModule/redux-selectors';
 
-export const getUserInfo = userSelectors.getUserInfo;
-export const getUser = userSelectors.getUser;
-export const getUserId = userSelectors.getUserId;
-export const hasPermission = userSelectors.hasPermission;
-export const hasRole = userSelectors.hasRole;
-export const checkAccess = userSelectors.checkAccess;
+export const { getUserInfo } = userSelectors;
+export const { getUser } = userSelectors;
+export const { getUserId } = userSelectors;
+export const { hasPermission } = userSelectors;
+export const { hasRole } = userSelectors;
+export const { checkAccess } = userSelectors;
 
 export function getCurrentPath(globalState) {
   // используется в redux-router 4

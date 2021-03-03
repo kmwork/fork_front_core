@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import serverConfig from '../../../server/server-config';
+import serverConfig from '../../server-config';
 
 import {
   objectValues,

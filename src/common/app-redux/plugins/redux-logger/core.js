@@ -50,7 +50,9 @@ function printBuffer(buffer, options) {
   const isUsingDefaultFormatter = typeof options.titleFormatter === 'undefined';
 
   buffer.forEach((logEntry, key) => {
-    const { started, startedTime, action, prevState, error } = logEntry;
+    const {
+      started, startedTime, action, prevState, error,
+    } = logEntry;
     let { took, nextState } = logEntry;
     const nextEntry = buffer[key + 1];
 

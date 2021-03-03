@@ -10,8 +10,7 @@ import {
 } from '../../build-scripts/utils/path-utils';
 
 function getTestsGlobs(testPaths, postfix = 'test') {
-  return testPaths.map(testName =>
-    `${testName}/**/*.${postfix}.js?(x)`);
+  return testPaths.map(testName => `${testName}/**/*.${postfix}.js?(x)`);
 }
 
 export default function (webpackContext, webpackConfigUtils) {

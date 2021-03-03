@@ -69,20 +69,18 @@ export default class AbstractServerRunner {
 
   async initServerSubModules() {
     await Promise.all(
-      this.getServerSubModules().map((subModule) =>
-        subModule.initServerSubModule
-        && subModule.initServerSubModule(this),
-      ),
+      this.getServerSubModules().map((subModule) => subModule.initServerSubModule
+        && subModule.initServerSubModule(this)),
     );
   }
+
   async afterStartServerSubModules() {
     await Promise.all(
-      this.getServerSubModules().map((subModule) =>
-        subModule.afterStartServer
-        && subModule.afterStartServer(this),
-      ),
+      this.getServerSubModules().map((subModule) => subModule.afterStartServer
+        && subModule.afterStartServer(this)),
     );
   }
+
   getAllDBModels() {
     return aggregateArrayFn(this.getServerSubModules(), 'getDBModels')();
   }
@@ -185,7 +183,7 @@ export default class AbstractServerRunner {
       {
         register: pluginYar,
         options: serverConfig.server.features.session.yarOptions
-      }*/
+      } */
 
       ...aggregateArrayFn(this.getServerSubModules(), 'getServerPlugins')(services, strategies, servicesContext),
       // todo @ANKU @LOW - вынести в отдельный метод вне getPlugins?
@@ -227,25 +225,24 @@ export default class AbstractServerRunner {
     const contextPath = serverConfig.common.app.contextRoot;
 
     return new Promise(
-      (resolve, reject) =>
-        server.register(
-          hapiServerPlugins,
-          {
-            routes: {
-              prefix: contextPath
-                ? joinPath('/', contextPath)
-                : undefined,
-            },
+      (resolve, reject) => server.register(
+        hapiServerPlugins,
+        {
+          routes: {
+            prefix: contextPath
+              ? joinPath('/', contextPath)
+              : undefined,
           },
-          (error) => {
-            return error
-              ? reject(error)
-              : resolve({
-                services,
-                strategies,
-              });
-          },
-        ),
+        },
+        (error) => {
+          return error
+            ? reject(error)
+            : resolve({
+              services,
+              strategies,
+            });
+        },
+      ),
     )
       .catch((error) => {
         logger.error(error);

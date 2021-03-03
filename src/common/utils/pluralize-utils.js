@@ -3,7 +3,7 @@ export const pluralize = (function () {
   const pluralizeSubFunction = function (titles, number) {
     number = Math.abs(number);
     return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
-  }
+  };
   return function (_titles) {
     if (arguments.length === 1) {
       return function (_number) {
@@ -12,11 +12,11 @@ export const pluralize = (function () {
     }
     return pluralizeSubFunction(...arguments);
   };
-})();
+}());
 
 export function toTranslitFromRu(text) {
   return text.replace(/([а-яё])|([\s_-])|([^a-z\d])/gi,
-    (all, ch, space, words/* , i*/) => {
+    (all, ch, space, words/* , i */) => {
       if (space || words) {
         return space ? '-' : '';
       }

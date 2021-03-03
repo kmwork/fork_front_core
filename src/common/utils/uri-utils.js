@@ -17,8 +17,8 @@ function joinPathInner(...args) {
   return pathModule.join(...convertToString(...args));
 }
 
-export const normalize = pathModule.normalize;
-export const resolve = pathModule.resolve;
+export const { normalize } = pathModule;
+export const { resolve } = pathModule;
 
 
 // const VALID_PATH_REGEXP = /^([a-zA-Z]:)?(\\[^<>:"/\\|?*]+)+\\?$/;

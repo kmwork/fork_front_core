@@ -1,4 +1,4 @@
-@import "../../../../../../common/app-style/vars.css";
+@import "../../../../../../../lib/common/app-style/vars.css";
 
 .Button {
   color: buttontext;

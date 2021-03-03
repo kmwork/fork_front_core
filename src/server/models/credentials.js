@@ -12,6 +12,7 @@ export default class CredentialsModel {
   }
   */
   userInfo;
+
   /** любые контекстные данные при запуске приложения */
   contextData;
 
@@ -23,6 +24,7 @@ export default class CredentialsModel {
   isAuth() {
     return !!this.userInfo;
   }
+
   checkSimplePermission(accessObject) {
     // todo @ANKU @CRIT @MAIN @HACK - будем переделывать систему прав и тогда разнесем permissions и roles
     return checkAccess(this.userInfo, accessObject);
@@ -32,6 +34,7 @@ export default class CredentialsModel {
     //     || this.userInfo.roles.includes(accessObject)
     //   );
   }
+
   getUserName() {
     return this.isAuth()
       ? this.userInfo.username || this.userInfo.email

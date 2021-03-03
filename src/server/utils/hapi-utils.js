@@ -92,8 +92,7 @@ function responseWrapperInner(result, reply) {
 export function responseWrapper(result, reply) {
   if (result && result.then) {
     // promise
-    return result.then((finalResult) =>
-      responseWrapperInner(finalResult, reply));
+    return result.then((finalResult) => responseWrapperInner(finalResult, reply));
   }
   return responseWrapperInner(result, reply);
 }
@@ -262,9 +261,9 @@ export function downloadFile(reply, serverPath, fileName = null, type = null) {
   if (serverPath instanceof Readable) {
     // type = type || getFileType(fileName);
     return reply(serverPath)
-      // .type(type)
-      // .header('content-disposition', `attachment; filename=${encodeURI(fileName)};`)
-      ;
+    // .type(type)
+    // .header('content-disposition', `attachment; filename=${encodeURI(fileName)};`)
+    ;
   }
 
   const result = base64ToBuffer(serverPath, fileName);
@@ -275,8 +274,7 @@ export function downloadFile(reply, serverPath, fileName = null, type = null) {
     } = result;
 
     const response = reply(buffer);
-    Object.keys(headers).forEach((headerKey) =>
-      response.header(headerKey, headers[headerKey]));
+    Object.keys(headers).forEach((headerKey) => response.header(headerKey, headers[headerKey]));
     return response;
   }
 

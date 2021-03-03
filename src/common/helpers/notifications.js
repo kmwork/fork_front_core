@@ -124,18 +124,21 @@ export class NoticeEmitter extends EventEmitter {
       status: this.STATUSES.ERROR,
     });
   }
+
   success(messages, options = {}) {
     this.notify(messages, {
       ...options,
       status: this.STATUSES.SUCCESS,
     });
   }
+
   info(messages, options = {}) {
     this.notify(messages, {
       ...options,
       status: this.STATUSES.INFO,
     });
   }
+
   warn(messages, options = {}) {
     this.notify(messages, {
       ...options,
@@ -156,7 +159,7 @@ export class NoticeEmitter extends EventEmitter {
 
 const emitter = new NoticeEmitter();
 
-export const STATUSES = emitter.STATUSES;
+export const { STATUSES } = emitter;
 export const notify = emitter.notify.bind(emitter);
 export const notifySuccess = emitter.success.bind(emitter);
 export const notifyInfo = emitter.info.bind(emitter);

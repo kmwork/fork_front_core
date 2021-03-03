@@ -3,7 +3,7 @@ import moment from 'moment';
 import {
   parseDate,
   compareDate,
-  fromNow
+  fromNow,
 } from './date-utils';
 
 describe('date-utils', () => {

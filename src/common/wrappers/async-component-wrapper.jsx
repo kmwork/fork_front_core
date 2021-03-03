@@ -3,6 +3,7 @@ import React from 'react';
 export default function asyncComponentWrapper(getComponent) {
   return class AsyncComponent extends React.Component {
     static Component = null;
+
     state = {
       Component: AsyncComponent.Component,
     };
@@ -18,6 +19,7 @@ export default function asyncComponentWrapper(getComponent) {
           });
       }
     }
+
     render() {
       const { Component } = this.state;
       if (Component) {

@@ -116,7 +116,7 @@ export function getCurrentTime() {
   return parseToSystem(Date.now());
 }
 
-export function fromNow (date, format = 'days') {
+export function fromNow(date, format = 'days') {
   return moment().diff(moment(date), format);
 }
 

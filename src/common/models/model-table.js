@@ -120,16 +120,12 @@ export function filterAndSortDb(mockDb, query, searchFields = []) {
 
   // filters
   if (filters) {
-    result = result.filter((record) =>
-      Object.keys(filters).every((filterKey) =>
-        includes(filters[filterKey], record[filterKey], false, true)));
+    result = result.filter((record) => Object.keys(filters).every((filterKey) => includes(filters[filterKey], record[filterKey], false, true)));
   }
 
   // search
   if (search) {
-    result = result.filter((object) =>
-      searchFields.some((searchField) =>
-        searchInValue(object[searchField], search)));
+    result = result.filter((object) => searchFields.some((searchField) => searchInValue(object[searchField], search)));
   }
 
   // sorting
@@ -138,12 +134,12 @@ export function filterAndSortDb(mockDb, query, searchFields = []) {
       const fieldA = objectA[sortBy];
       const fieldB = objectB[sortBy];
       return (sortDesc ? -1 : 1) * (
-          fieldA > fieldB
-            ? 1
-            : fieldA < fieldB
+        fieldA > fieldB
+          ? 1
+          : fieldA < fieldB
             ? -1
             : 0
-        );
+      );
     });
   }
 

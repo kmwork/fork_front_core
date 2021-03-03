@@ -91,9 +91,7 @@ async function writeToFilePromise(filePath, content, streamOptions = null, newFi
           })
           .on('error', (error) => {
             reject(error);
-          })
-        ;
-
+          });
         if (content instanceof Readable) {
           // content.on('data', (chunk) => {
           //   downloaded += chunk.length;

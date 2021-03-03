@@ -104,7 +104,7 @@ export default class AttachmentView extends React.Component {
     const {
       editable,
       showAddButton,
-  } = this.props;
+    } = this.props;
     return editable && showAddButton && React.createElement(AttachmentUploadControl, this.props);
   }
 

@@ -1,6 +1,7 @@
+const { spawn } = require('child_process');
 const { inCoreRoot } = require('./utils/path-utils');
 
-const spawn = require('child_process').spawn;
+
 spawn('node', [inCoreRoot('build-scripts/start-backend')], { stdio: 'inherit' });
 
 // todo @ANKU @BUG_OUT @LOW - не понятная бага, иногда backend не запускается - приходится делать тайммаут

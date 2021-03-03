@@ -10,15 +10,13 @@ function pluginEnvironments(webpackConfig, {
 }, customEnvironments = {}) {
   webpackConfig.plugins.push(
     new webpack.DefinePlugin({
-      'process.env': Object.assign(
-        {
-          APP_ID: JSON.stringify(packageJson.name),
-          APP_VERSION: JSON.stringify(packageJson.version),
-          NODE_ENV: JSON.stringify(ENV.NODE_ENV)
-        },
+      'process.env': {
+        APP_ID: JSON.stringify(packageJson.name),
+        APP_VERSION: JSON.stringify(packageJson.version),
+        NODE_ENV: JSON.stringify(ENV.NODE_ENV),
         // переменный стоит фиксировать только для локалхоста, остальные запускаются через build и могут свои переменные
         // при запуске проставлять а в таком случае они перезатрут на те, которые были при билде
-        isLocalhost ? {
+        ...(isLocalhost ? {
           NODE_ENV: JSON.stringify(ENV.NODE_ENV),
           NODE_CONFIG: JSON.stringify(ENV.NODE_CONFIG),
 
@@ -40,9 +38,9 @@ function pluginEnvironments(webpackConfig, {
           SERVICES_PORT: ENV.SERVICES_PORT,
 
           PROTECTOR_PASSWORD: JSON.stringify(ENV.PROTECTOR_PASSWORD)
-        } : null,
-        customEnvironments
-      )
+        } : null),
+        ...customEnvironments
+      }
     })
   );
 }

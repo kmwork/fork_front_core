@@ -60,10 +60,14 @@ export default class ReadMore extends Component {
         <Truncate
           lines={ !expanded && lines }
           ellipsis={ (
-            <span>... <a
-              href="#"
-              onClick={ this.toggleLines }
-            >{more}</a>
+            <span>
+              ...
+              <a
+                href="#"
+                onClick={ this.toggleLines }
+              >
+                {more}
+              </a>
             </span>
           ) }
           onTruncate={ this.handleTruncate }

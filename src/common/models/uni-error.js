@@ -157,8 +157,7 @@ export function createUniError(uniErrorData = {}) {
 
   uniError.uniCode = uniError.errorCode || uniError.responseStatusCode;
 
-  uniError.uniMessage =
-    (uniError.clientErrorMessages && uniError.clientErrorMessages[0])
+  uniError.uniMessage =    (uniError.clientErrorMessages && uniError.clientErrorMessages[0])
     || uniError.clientErrorMessage
     || uniError.clientErrorTitle
     || uniError.message

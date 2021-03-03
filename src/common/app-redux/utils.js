@@ -59,8 +59,8 @@ export function createFilteredByIdReducer(
 
     const isInitializationCall = state === undefined;
     const shouldRunWrappedReducer = isNil(exactlyId)
-        ? action[actionIdField || defaultIdField] === state[stateIdField || defaultIdField]
-        : action[actionIdField || defaultIdField] === exactlyId;
+      ? action[actionIdField || defaultIdField] === state[stateIdField || defaultIdField]
+      : action[actionIdField || defaultIdField] === exactlyId;
 
     if (isInitializationCall || shouldRunWrappedReducer) {
       newState = reducerFunction(state, action);
@@ -121,7 +121,7 @@ export function createReducer(initialState, handlers = {}, fieldsHandlers = {}, 
         caseReducer = createForFieldCaseReducer.bind(this, caseReducer);
       }
       return caseReducer(state, action, action[ACTION_PAYLOAD_FIELD]);
-    } else if (defaultHandler) {
+    } if (defaultHandler) {
       if (typeof defaultHandler !== 'function') {
         throw new Error('"defaultHandler" should be function for createReducer function');
       }

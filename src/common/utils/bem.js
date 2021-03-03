@@ -2,7 +2,7 @@
 import block from 'bem-cn';
 import clientConfig from '../client-config';
 
-const separators = clientConfig.common.features.bem.separators;
+const { separators } = clientConfig.common.features.bem;
 
 block.setup({
   el: separators.element,

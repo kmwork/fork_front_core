@@ -69,6 +69,7 @@ export default class CoreServerRunner extends AbstractServerRunner {
   getModuleToRoutePrefixMap() {
     return this.getClientRunner().getModuleToRoutePrefixMap();
   }
+
   getModuleRoutePrefix(moduleName) {
     return this.getClientRunner().getModuleRoutePrefix(moduleName);
   }
@@ -134,6 +135,7 @@ export default class CoreServerRunner extends AbstractServerRunner {
   getTemplateHead() {
     return '';
   }
+
   getTemplateBody() {
     return '';
   }

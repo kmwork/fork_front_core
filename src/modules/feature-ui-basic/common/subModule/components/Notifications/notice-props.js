@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import NoticeEmitter from '../../../../../../common/helpers/notifications';
 
-const STATUSES = NoticeEmitter.STATUSES;
+const { STATUSES } = NoticeEmitter;
 
 export const defaultProps = {
   status: STATUSES.ERROR,

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import { fk, many, attr, Model } from 'redux-orm';
+import {
+  fk, many, attr, Model,
+} from 'redux-orm';
 
 import { getRandomInt } from '../../utils/common';
 

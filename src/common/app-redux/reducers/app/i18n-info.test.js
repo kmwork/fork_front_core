@@ -114,9 +114,8 @@ describe('(Redux Module) i18n-info', () => {
       const promise = actionI18NChangeLanguage('en').payload;
       expect(!!promise.then).to.be.true;
       // return promise.should.eventually.be.fulfilled;
-      return promise.then((newLanguage) =>
-        expect(newLanguage)
-          .to.deep.equal('en'));
+      return promise.then((newLanguage) => expect(newLanguage)
+        .to.deep.equal('en'));
     });
 
     it('Should change language in state', () => {
