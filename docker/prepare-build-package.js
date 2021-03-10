@@ -8,23 +8,23 @@
  *     они не нужны для сборки, PhantomJS ставится долго.
  */
 
-const fs = require('fs');
-const packages = require('../package.json');
+var fs = require('fs');
+var packages = require('./../package.json');
 
 function isTestDependency(dependency) {
-  return !!dependency.match(/chai|karma|lint|mocha/ig);
+    return !!dependency.match(/chai|karma|lint|mocha/ig);
 }
 
 function removeTestDependensies(deps) {
-  const result = {};
-  let key;
-  for (key in deps) {
-    if (!isTestDependency(key)) {
-      result[key] = deps[key];
+    var result = {};
+    var key;
+    for (key in deps) {
+        if (!isTestDependency(key)) {
+            result[key] = deps[key];
+        }
     }
-  }
 
-  return result;
+    return result;
 }
 
 // проставляем фейковую версию

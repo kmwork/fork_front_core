@@ -10,7 +10,7 @@ export default function SvgIcon({
   width = width || size;
   height = height || size;
   return (
-    <svg width={ width } height={ height } viewBox={ viewBox }>
+    <svg width={width} height={height} viewBox={viewBox}>
       {children}
     </svg>
   );

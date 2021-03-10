@@ -8,7 +8,7 @@ const {
   SERVICES_HOST,
   SERVICES_PORT = 80,
   SERVICES_PROTOCOL,
-  /** Первый запуск мидловых сервисов бывает до 20 сек */
+  /** Первый запуск мидловых сервисов бывает до 20 сек*/
   REQUEST_TIMEOUT = 120000,
   PROXY_PORT = 9090
 } = process.env;

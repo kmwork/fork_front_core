@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-const { tryLoadProjectFile } = require('./utils/require-utils');
+const { tryLoadProjectFile } = require('../build-scripts/utils/require-utils');
 
 const context = tryLoadProjectFile('build-scripts/webpack-context');
 

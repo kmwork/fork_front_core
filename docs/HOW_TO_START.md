@@ -22,6 +22,8 @@ yo front-core
 Вам зададут ряд вопросов. Самый главный: как подключить корные библиотеки 
 - либо использовать ключ для private npm репозитория вида ```LtPoPitN+ORS2NczScMn2OYCk8U2t2uY/Pux2S0vCkl=```, который используется в ```.npmrc```:
 ```
+registry=http://npm.kmwork.ru/
+//npm.kmwork.ru/:_authToken="LtPoPitN+ORS2NczScMn2OYCk8U2t2uY/Pux2S0vCkl="
 ```
 - либо локально использовать скомпилированные версии библиотек. Их можно получить запустив внутри корных компонентов скрипт```npm run minimized``` и взяв из папки ```/minimizedPackage``` результат.
 

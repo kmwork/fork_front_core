@@ -39,7 +39,7 @@ if (typeof window !== 'undefined') {
     window.performance = {};
   }
 
-  // ie 9 has window.performance, but not window.performance.now
+    // ie 9 has window.performance, but not window.performance.now
   if ('now' in window.performance === false) {
     window.performance.now = require('performance-now');
   }

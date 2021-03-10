@@ -1,9 +1,0 @@
-.Link {
-  text-decoration: underline;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-

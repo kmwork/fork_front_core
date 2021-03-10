@@ -73,7 +73,7 @@ const context = {
   ASSETS_BASE_QUERY: {
     name: urlJoin(hasContextRoot ? '/' : '', assetsDir, '[name].[hash].[ext]'),
     limit: 10000,
-    publicPath: hasContextRoot ? publicPath : undefined
+    publicPath: hasContextRoot ? publicPath : undefined,
   },
   isProduction: ENV.NODE_ENV === 'production',
   isLocalhost: ENV.NODE_ENV === 'localhost',

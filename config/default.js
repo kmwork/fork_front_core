@@ -89,7 +89,7 @@ const {
   APP_MOCKS,
   USE_MOCKS,
   DEBUG,
-  /** Первый запуск мидловых сервисов бывает до 20 сек */
+  /** Первый запуск мидловых сервисов бывает до 20 сек*/
   REQUEST_TIMEOUT = 120000,
   LOGS_PATH = path.join(process.cwd(), '/logs/all.log'),
 
@@ -460,7 +460,7 @@ module.exports = {
            host: '127.0.0.1',
            port: 28777,
            node_name: 'nodeName'
-           }, */
+           },*/
           logstashLogger: false
         }
       },

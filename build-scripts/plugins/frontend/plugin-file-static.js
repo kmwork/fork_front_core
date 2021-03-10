@@ -10,7 +10,7 @@ function pluginFileStatic(webpackConfig, {
     new AssetsPlugin({
       path: pathStatic,
       filename: 'assets.json'
-    }), */
+    }),*/
 
     webpackConfig.plugins.push(
       // https://github.com/kevlened/copy-webpack-plugin

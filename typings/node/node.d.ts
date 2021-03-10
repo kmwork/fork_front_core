@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 // Type definitions for Node.js v0.12.0
 // Project: http://nodejs.org/
 // Definitions by: Microsoft TypeScript <http://typescriptlang.org>, DefinitelyTyped
